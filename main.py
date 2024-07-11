@@ -264,17 +264,19 @@ class Utility:
                     return user_message
 
         def get_user_keyword(self):
-                while True:
-                    user_keyword = input("Enter keyword: ").upper()
-                    if user_keyword.isalpha():
-                        user_keyword = VigenereCipher.adjust_keyword_length(self.user_message, user_keyword)
-                        print(f"Debug: user_message is '{self.user_message}'")
-                        print(f"Debug: user_keyword is '{user_keyword}'")
-                        return user_keyword
-                    else:
-                        print("Invalid keyword. Please enter a valid alphabetic keyword.")
+            if self.user_cipher_type not in ['V', 'VIGENERE']:
+                return None
+            while True:
+                user_keyword = input("Enter keyword: ").upper()
+                if user_keyword.isalpha():
+                    user_keyword = VigenereCipher.adjust_keyword_length(self.user_message, user_keyword)
+                    return user_keyword
+                else:
+                    print("Invalid keyword. Please enter a valid alphabetic keyword.")
 
         def get_user_offset(self):
+                if self.user_cipher_type not in ['C', 'CAESAR']:
+                    return None
                 while True:
                     try:
                         user_offset = int(input("Enter Offset: "))
