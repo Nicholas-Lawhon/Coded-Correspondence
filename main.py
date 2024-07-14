@@ -9,15 +9,6 @@ ALPHABET_VALUES = {
 }
 
 
-# New cipher will take 2 lists of strings, one for the message and one for the keyword.
-# Each character has a value from our dictionary.
-# For Decrypting, we will subtract the keyword value from the message value.
-# For Encrypting, we will add the keyword value to the message value.
-# The remaining value will be the new character in the message.
-
-# Don't forget to add functionality that takes the user keyword input and repeats it until it matches the message length.
-
-
 # Base Class for the Ciphers
 class CipherBase(ABC):
     @abstractmethod
